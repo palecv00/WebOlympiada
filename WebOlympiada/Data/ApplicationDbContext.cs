@@ -42,6 +42,7 @@ namespace WebOlympiada.Data
             });
 
         }
+        public DbSet<WebOlympiada.Models.Divaci> Divaci { get; set; } = default!;
 
 
     }

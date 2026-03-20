@@ -5,13 +5,11 @@ using System.Collections.Generic;
 
 namespace WebOlympiada.Models;
 
-public partial class Sport
+public partial class Divaci
 {
     public int Id { get; set; }
 
-    public string Name { get; set; }
+    public string Jmeno { get; set; }
 
-    public int TypeId { get; set; }
-
-    public virtual Type Type { get; set; }
+    public string Prijmeni { get; set; }
 }
