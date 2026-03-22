@@ -43,6 +43,8 @@ namespace WebOlympiada.Data
 
         }
         public DbSet<WebOlympiada.Models.Rozhodci> Rozhodci { get; set; } = default!;
+        public DbSet<WebOlympiada.Models.Divaci> Divaci { get; set; } = default!;
+        public DbSet<WebOlympiada.Models.Sportovec> Sportovec { get; set; } = default!;
 
 
     }

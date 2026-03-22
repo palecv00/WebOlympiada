@@ -14,6 +14,7 @@ public partial class aspnetOGContext : DbContext
     }
 
     public virtual DbSet<Rozhodci> Rozhodcis { get; set; }
+    public virtual DbSet<Divaci> Divacis { get; set; }
 
     public virtual DbSet<Sport> Sports { get; set; }
 
@@ -27,6 +28,14 @@ public partial class aspnetOGContext : DbContext
 
             entity.Property(e => e.Jmeno).IsRequired();
             entity.Property(e => e.Prijmeni).IsRequired();
+        modelBuilder.Entity<Divaci>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Divaci__3214EC072BFDF6C1");
+
+            entity.ToTable("Divaci");
+
+            entity.Property(e => e.Jmeno).HasMaxLength(50);
+            entity.Property(e => e.Prijmeni).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Sport>(entity =>
