@@ -2,22 +2,14 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebOlympiada.Models;
 
-[Table("Types")]
 public partial class Type
 {
-
-    [Key]
     public int Id { get; set; }
 
-    [Required]
     public string Name { get; set; }
 
-    [Required]
-    [MaxLength(50)]
     public virtual ICollection<Sport> Sports { get; set; } = new List<Sport>();
 }
