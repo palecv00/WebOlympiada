@@ -19,7 +19,7 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[Sportovec]",
+         "Name": "[dbo].[Divaci]",
          "ObjectType": 0
       },
       {

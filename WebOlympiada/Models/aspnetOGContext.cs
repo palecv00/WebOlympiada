@@ -13,20 +13,33 @@ public partial class aspnetOGContext : DbContext
     {
     }
 
-    public virtual DbSet<Sport> Sports { get; set; }
+    public virtual DbSet<Divaci> Divacis { get; set; }
 
-    public virtual DbSet<Sportovec> Sportovecs { get; set; }
+    public virtual DbSet<Sport> Sports { get; set; }
 
     public virtual DbSet<Type> Types { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Divaci>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Divaci__3214EC072BFDF6C1");
+
+            entity.ToTable("Divaci");
+
+            entity.Property(e => e.Jmeno).HasMaxLength(50);
+            entity.Property(e => e.Prijmeni).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<Sport>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Sports__3213E83F603D15AB");
 
             entity.HasIndex(e => e.TypeId, "IX_Sports_TypeID");
 
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
             entity.Property(e => e.Name)
                 .IsRequired()
                 .HasColumnName("name");
@@ -36,23 +49,6 @@ public partial class aspnetOGContext : DbContext
                 .HasForeignKey(d => d.TypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Sports.Types");
-        });
-
-        modelBuilder.Entity<Sportovec>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Sportove__3214EC07DAF26366");
-
-            entity.ToTable("Sportovec");
-
-            entity.Property(e => e.Jmeno)
-                .IsRequired()
-                .HasMaxLength(50);
-            entity.Property(e => e.Narodnost)
-                .IsRequired()
-                .HasMaxLength(50);
-            entity.Property(e => e.Prijmeni)
-                .IsRequired()
-                .HasMaxLength(50);
         });
 
         modelBuilder.Entity<Type>(entity =>
