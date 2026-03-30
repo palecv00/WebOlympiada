@@ -15,6 +15,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<sportovecRepo>();
 builder.Services.AddScoped<DivaciRepo>();
 // Register repositories
 builder.Services.AddScoped<RozhodciRepo>();
