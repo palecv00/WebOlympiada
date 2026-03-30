@@ -21,5 +21,10 @@ namespace WebOlympiada.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public IActionResult TestRepo([FromServices] WebOlympiada.Repo.DivaciRepo repo)
+        {
+            var list = repo.GetAll();
+            return Content($"Count: {list.Count()}");
+        }
     }
 }

@@ -15,9 +15,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<DivaciRepo>();
+
 var app = builder.Build();
 
-builder.Services.AddScoped<DivaciRepo>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
