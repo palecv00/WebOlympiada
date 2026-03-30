@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebOlympiada.Data;
+using WebOlympiada.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+// Register repositories
+builder.Services.AddScoped<RozhodciRepo>();
 
 var app = builder.Build();
 
