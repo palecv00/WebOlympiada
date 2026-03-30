@@ -11,7 +11,7 @@ namespace WebOlympiada.Data
         public virtual DbSet<Rozhodci> Rozhodci { get; set; }
         public virtual DbSet<Divaci> Divaci { get; set; }
 
-        public virtual DbSet<Sport> Sportovec { get; set; }
+        public virtual DbSet<Sportovec> Sportovec { get; set; }
         public virtual DbSet<Sport> Sports { get; set; }
 
 
