@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebOlympiada.Data;
+using WebOlympiada.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+builder.Services.AddScoped<DivaciRepo>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
