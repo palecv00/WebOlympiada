@@ -7,6 +7,7 @@ namespace WebOlympiada.Data
 {
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
     {
+
         public virtual DbSet<Rozhodci> Rozhodci { get; set; }
         public virtual DbSet<Divaci> Divaci { get; set; }
 
